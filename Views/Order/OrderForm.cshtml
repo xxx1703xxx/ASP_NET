@@ -1,0 +1,19 @@
+﻿<div class="row justify-content-center">
+    <div class="col-md-8">
+        <h2 class="text-center">Форма замовлення товарів</h2>
+        <form asp-action="OrderForm" method="post" class="bg-white p-4 shadow-sm rounded">
+            @for (int i = 0; i < ViewBag.ProductCount; i++)
+            {
+                <div class="mb-3">
+                    <label for="Name" class="form-label">Назва товару @i+1:</label>
+                    <input type="text" name="products[@i].Name" class="form-control" required />
+                </div>
+                <div class="mb-3">
+                    <label for="Quantity" class="form-label">Кількість:</label>
+                    <input type="number" name="products[@i].Quantity" class="form-control" min="1" required />
+                </div>
+            }
+            <button type="submit" class="btn btn-success w-100">Замовити</button>
+        </form>
+    </div>
+</div>
